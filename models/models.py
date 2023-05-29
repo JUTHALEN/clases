@@ -82,7 +82,7 @@ class modulo_profesor(models.Model):
         column1="profesor_id",
         column2="alumno_id",
         string="Alumnos",
-        ondelete="set null"
+        ondelete="cascade"
     )
     
     #constrain
@@ -121,7 +121,7 @@ class modulo_alumno(models.Model):
         column1="clase_id",
         column2="alumno_id",
         string="Clases",
-        ondelete="set null")
+        ondelete="restrict")
     #Relaciones con profesor
     profesor_ids = fields.Many2many(
         comodel_name="modulo.profesor",
@@ -129,7 +129,7 @@ class modulo_alumno(models.Model):
         column1="alumno_id",
         column2="profesor_id",
         string="Profesores",
-        required=True
+        ondelete = "restrict"
     )
     
     #constrain
