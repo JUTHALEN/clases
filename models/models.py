@@ -118,8 +118,8 @@ class modulo_alumno(models.Model):
     clase_ids = fields.Many2many(
         comodel_name="modulo.clase",
         relation="clase_alumno_rel",
-        column1="clase_id",
-        column2="alumno_id",
+        column1="alumno_id",
+        column2="clase_id",
         string="Clases",
         ondelete="restrict")
     #Relaciones con profesor
