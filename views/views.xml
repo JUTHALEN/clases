@@ -1,7 +1,6 @@
 <odoo>
   <data>
     <!-- explicit list view definition MODEL DEBE SER IGUAL AL _NAME DEL MODULO-->
-
     <record model="ir.ui.view" id="modulo_clase_tree">
       <field name="name">Clases</field>
       <field name="model">modulo.clase</field>
@@ -12,6 +11,7 @@
           <field name="hora_inicio"/>
           <field name="hora_fin"/>
           <field name="profesor_id"/>
+          <field name="clases"/>
           <field name="alumno_ids" widget="many2many_tags" options="{'no_create': True}"/>
         </tree>
       </field>
@@ -19,7 +19,7 @@
 
     <!-- actions opening views on models RES_MODEL DEBE SER IGUAL AL _NAME DEL MODULO-->
     <record model="ir.actions.act_window" id="modulo_clase_action_window">
-      <field name="name">Accion de ventana para modulo.clase</field>
+      <field name="name">Ventana de clases</field>
       <field name="res_model">modulo.clase</field>
       <field name="view_mode">tree,form</field>
     </record>
@@ -44,7 +44,7 @@
     <menuitem name="Clases" id="modulo_clases_menu_root"/>
 
     <!-- menu categories AQUI ESTO DEBE SER IGUAL:  id == parent-->
-    <menuitem name="Clases" id="modulo_clases_menu_1" parent="modulo1_menu_root"/>
+    <menuitem name="Clases" id="modulo_clases_menu_1" parent="modulo_clases_menu_root"/>
 
     <!-- actions -->
     <menuitem name="Ver Clases" id="modulo_clase_menu_list" parent="modulo_clases_menu_1"
