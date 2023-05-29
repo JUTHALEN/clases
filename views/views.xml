@@ -1,70 +1,16 @@
 <odoo>
   <data>
     <!-- explicit list view definition MODEL DEBE SER IGUAL AL _NAME DEL MODULO-->
-    <record model="ir.ui.view" id="modulo_clase_tree">
+  <record model="ir.ui.view" id="modulo_clase_tree">
       <field name="name">Clases</field>
       <field name="model">modulo.clase</field>
       <field name="arch" type="xml">
         <tree>
           <field name="name"/>
-          <field name="fecha"/>
-          <field name="hora_inicio" widget="time"/>
-          <field name="hora_fin"/>          
-          <!-- <field name="clases"/> -->
-          <field name="profesor_id" widget="many2one_tags" options="{'no_create': True}"/>
-          <field name="alumno_ids" widget="many2many_tags" options="{'no_create': True}"/>
         </tree>
       </field>
     </record>
 
-  <record model="ir.ui.view" id="modulo_clase_form">
-    <field name="name">Formulario alta Clase</field>
-    <field name="model">modulo.clase</field>
-    <field name="arch" type="xml">
-      <form string="Clases">
-        <sheet>
-          <group>
-            <field name="name"/>
-            <field name="fecha"/>
-            <field name="hora_inicio" required="True" widget="time"/>
-            <field name="hora_fin" required="True" widget="time"/>                  
-          </group>
-          <notebook>
-            <page string="Alumnos">
-              <field name="alumno_ids"/>
-            </page>
-            <page string="Profesores">
-              <field name="profesor_id"/>
-            </page>
-          </notebook>
-        </sheet>
-      </form>
-    </field>
-  </record>
-    
-
-    <!-- actions opening views on models RES_MODEL DEBE SER IGUAL AL _NAME DEL MODULO-->
-    <record model="ir.actions.act_window" id="modulo_clase_action_window">
-      <field name="name">Ventana de clases</field>
-      <field name="res_model">modulo.clase</field>
-      <field name="view_mode">tree,form</field>
-    </record>
-
-    <!-- server action to the one above Las acciones de servidor no las hemos visto-->
-<!--
-    <record model="ir.actions.server" id="modulo_sge.action_server">
-      <field name="name">moduloSGE server</field>
-      <field name="model_id" ref="model_modulo_sge_modulo_sge"/>
-      <field name="state">code</field>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": model._name,
-        }
-      </field>
-    </record>
--->
 
     <!-- Top menu item AQUI DEFINIMOS COMO QUEREMOS QUE APAREZCA NUESTRO MENÚ -->
     <menuitem name="Clases" id="modulo_clases_menu_root"/>
@@ -75,6 +21,6 @@
     <!-- actions -->
     <menuitem name="Ver Clases" id="modulo_clase_menu_list" parent="modulo_clases_menu_1"
               action="modulo_clase_action_window"/>
-              
+           
   </data>
-</odoo>
+</odoo> 
