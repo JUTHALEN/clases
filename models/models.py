@@ -27,7 +27,7 @@ class modulo_clase(models.Model):
     profesor_id = fields.Many2one(
         comodel_name="modulo.profesor",
         string="Profesor",
-        required=True
+        ondelete = "restrict"
     )
     #Relaciones con alumno
     alumno_ids = fields.Many2many(
@@ -36,7 +36,7 @@ class modulo_clase(models.Model):
         column1="clase_id",
         column2="alumno_id",
         string="Alumnos",
-        ondelete="set null"
+        ondelete="cascade"
     )
 
 
@@ -78,9 +78,9 @@ class modulo_profesor(models.Model):
     #Relaciones con alumno
     alumno_ids = fields.Many2many(
         comodel_name="modulo.alumno",
-        relation="clase_alumno_rel",
-        column1="alumno_id",
-        column2="clase_id",
+        relation="profesor_alumno_rel",
+        column1="profesor_id",
+        column2="alumno_id",
         string="Alumnos",
         ondelete="set null"
     )
@@ -123,9 +123,12 @@ class modulo_alumno(models.Model):
         string="Clases",
         ondelete="set null")
     #Relaciones con profesor
-    profesor_id = fields.Many2one(
+    profesor_ids = fields.Many2many(
         comodel_name="modulo.profesor",
-        string="Profesor",
+        relation="profesor_alumno_rel",
+        column1="alumno_id",
+        column2="profesor_id",
+        string="Profesores",
         required=True
     )
     
