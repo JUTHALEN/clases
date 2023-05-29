@@ -1,0 +1,51 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition MODEL DEBE SER IGUAL AL _NAME DEL MODULO-->
+
+    <record model="ir.ui.view" id="modulo1_modelo_tree">
+      <field name="name">Vista arbol del modelo</field>
+      <field name="model">modulo1.modulo</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/> 
+        </tree>
+      </field>
+    </record>
+
+    <!-- actions opening views on models RES_MODEL DEBE SER IGUAL AL _NAME DEL MODULO-->
+    <record model="ir.actions.act_window" id="modulo1_modulo_action_window">
+      <field name="name">Accion de ventana para modulo1.modulo</field>
+      <field name="res_model">modulo1.modulo</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- server action to the one above Las acciones de servidor no las hemos visto-->
+<!--
+    <record model="ir.actions.server" id="modulo_sge.action_server">
+      <field name="name">moduloSGE server</field>
+      <field name="model_id" ref="model_modulo_sge_modulo_sge"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item AQUI DEFINIMOS COMO QUEREMOS QUE APAREZCA NUESTRO MENÚ -->
+
+    <menuitem name="Módulo1" id="modulo1_menu_root"/>
+
+    <!-- menu categories AQUI ESTO DEBE SER IGUAL:  id == parent-->
+    <menuitem name="Modelo" id="modulo1_modulo_menu_1" parent="modulo1_menu_root"/>
+
+    <!-- actions -->
+    <menuitem name="vER MODELOS" id="modulo1_modulo_menu_1_list" parent="modulo1_modulo_menu_1"
+              action="modulo1_modulo_action_window"/>
+              
+  </data>
+</odoo>
