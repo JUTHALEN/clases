@@ -16,7 +16,8 @@
         </tree>
       </field>
     </record>
-  <record model="ir.ui.view" id="modulo_clase_form"></record>
+
+  <record model="ir.ui.view" id="modulo_clase_form">
     <form string="Clases">
               <sheet>
                 <group>
@@ -33,8 +34,9 @@
                     <field name="profesor_id"/>
                   </page>
                 </notebook>
-              </sheet>
-            </form>
+      </sheet>
+    </form>
+  </record>
     
 
     <!-- actions opening views on models RES_MODEL DEBE SER IGUAL AL _NAME DEL MODULO-->
