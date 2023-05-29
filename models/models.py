@@ -14,20 +14,20 @@ class modulo_clase(models.Model):
     fecha = fields.Date(string="Fecha", required=True)
     hora_inicio = fields.Float(string="Hora de inicio", widget="time")
     hora_fin = fields.Float(string="Hora de fin", widget="time")
-    clases = fields.Selection(
-        [('1',"Sistema de Gestión empresarial"),
-        ('2',"Lenguaje de Marcas"),
-        ('3',"Entornos de Desarrollo"),
-        ('4',"Programación"),
-        ('5',"Bases de Datos"),
-        ('6',"Formación y Orientación Laboral")],
-        string="Clases"
-    )
+    # clases = fields.Selection(
+    #     [('1',"Sistema de Gestión empresarial"),
+    #     ('2',"Lenguaje de Marcas"),
+    #     ('3',"Entornos de Desarrollo"),
+    #     ('4',"Programación"),
+    #     ('5',"Bases de Datos"),
+    #     ('6',"Formación y Orientación Laboral")],
+    #     string="Clases"
+    # )
     #Relaciones con profesor
     profesor_id = fields.Many2one(
         comodel_name="modulo.profesor",
         string="Profesor",
-        ondelete = "restrict"
+        ondelete = "cascade"
     )
     #Relaciones con alumno
     alumno_ids = fields.Many2many(
@@ -121,7 +121,7 @@ class modulo_alumno(models.Model):
         column1="alumno_id",
         column2="clase_id",
         string="Clases",
-        ondelete="restrict")
+        ondelete="cascade")
     #Relaciones con profesor
     profesor_ids = fields.Many2many(
         comodel_name="modulo.profesor",
@@ -129,7 +129,7 @@ class modulo_alumno(models.Model):
         column1="alumno_id",
         column2="profesor_id",
         string="Profesores",
-        ondelete = "restrict"
+        ondelete = "cascade"
     )
     
     #constrain
