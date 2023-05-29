@@ -8,14 +8,34 @@
         <tree>
           <field name="name"/>
           <field name="fecha"/>
-          <field name="hora_inicio" widget="DateTime"/>
+          <field name="hora_inicio" widget="time"/>
           <field name="hora_fin"/>          
           <field name="clases"/>
-          <field name="profesor_id" widget="many2one_tags"/>
+          <field name="profesor_id" widget="many2one_tags" options="{'no_create': True}"/>
           <field name="alumno_ids" widget="many2many_tags" options="{'no_create': True}"/>
         </tree>
       </field>
     </record>
+  <record model="ir.ui.view" id="modulo_clase_form"></record>
+    <form string="Clases">
+              <sheet>
+                <group>
+                  <field name="name"/>
+                  <field name="fecha"/>
+                  <field name="hora_inicio" required="True" widget="time"/>
+                  <field name="hora_fin" required="True" widget="time"/>                  
+                </group>
+                <notebook>
+                  <page string="Alumnos">
+                    <field name="alumno_ids"/>
+                  </page>
+                  <page string="Profesores">
+                    <field name="profesor_id"/>
+                  </page>
+                </notebook>
+              </sheet>
+            </form>
+    
 
     <!-- actions opening views on models RES_MODEL DEBE SER IGUAL AL _NAME DEL MODULO-->
     <record model="ir.actions.act_window" id="modulo_clase_action_window">
