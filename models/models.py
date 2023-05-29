@@ -6,11 +6,11 @@ from datetime import datetime
 import re
 from odoo.exceptions import ValidationError
 
-class modulo_clase(models.Model):
-    _name = 'modulo.clase'
-    _description = 'clases'
+# class modulo_clase(models.Model):
+#     _name = 'modulo.clase'
+#     _description = 'clases'
 
-    name = fields.Char(string="Nombre", required=True)
+#     name = fields.Char(string="Nombre", required=True)
     # fecha = fields.Date(string="Fecha", required=True)
     # hora_inicio = fields.Float(string="Hora de inicio", widget="time")
     # hora_fin = fields.Float(string="Hora de fin", widget="time")

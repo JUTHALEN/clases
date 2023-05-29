@@ -1,26 +1,7 @@
 <odoo>
   <data>
     <!-- explicit list view definition MODEL DEBE SER IGUAL AL _NAME DEL MODULO-->
-  <record model="ir.ui.view" id="modulo_clase_tree">
-      <field name="name">Clases</field>
-      <field name="model">modulo.clase</field>
-      <field name="arch" type="xml">
-        <tree>
-          <field name="name"/>
-        </tree>
-      </field>
-    </record>
 
-
-    <!-- Top menu item AQUI DEFINIMOS COMO QUEREMOS QUE APAREZCA NUESTRO MENÚ -->
-    <menuitem name="Clases" id="modulo_clases_menu_root"/>
-
-    <!-- menu categories AQUI ESTO DEBE SER IGUAL:  id == parent-->
-    <menuitem name="Clases" id="modulo_clases_menu_1" parent="modulo_clases_menu_root"/>
-
-    <!-- actions -->
-    <menuitem name="Ver Clases" id="modulo_clase_menu_list" parent="modulo_clases_menu_1"
-              action="modulo_clase_action_window"/>
            
   </data>
 </odoo> 
