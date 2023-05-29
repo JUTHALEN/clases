@@ -18,24 +18,28 @@
     </record>
 
   <record model="ir.ui.view" id="modulo_clase_form">
-    <form string="Clases">
-              <sheet>
-                <group>
-                  <field name="name"/>
-                  <field name="fecha"/>
-                  <field name="hora_inicio" required="True" widget="time"/>
-                  <field name="hora_fin" required="True" widget="time"/>                  
-                </group>
-                <notebook>
-                  <page string="Alumnos">
-                    <field name="alumno_ids"/>
-                  </page>
-                  <page string="Profesores">
-                    <field name="profesor_id"/>
-                  </page>
-                </notebook>
-      </sheet>
-    </form>
+  <field name="name">Formulario alta Clase</field>
+      <field name="model">modulo.clase</field>
+      <field name="arch" type="xml">
+        <form string="Clases">
+                  <sheet>
+                    <group>
+                      <field name="name"/>
+                      <field name="fecha"/>
+                      <field name="hora_inicio" required="True" widget="time"/>
+                      <field name="hora_fin" required="True" widget="time"/>                  
+                    </group>
+                    <notebook>
+                      <page string="Alumnos">
+                        <field name="alumno_ids"/>
+                      </page>
+                      <page string="Profesores">
+                        <field name="profesor_id"/>
+                      </page>
+                    </notebook>
+          </sheet>
+        </form>
+      </field>
   </record>
     
 
